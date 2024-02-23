@@ -14,8 +14,8 @@ jobs:
       - name: Set up AWS CLI
         uses: aws-actions/configure-aws-credentials@v2
         with:
-          aws-access-key-id: ${{ AKIAUZVMVGEIGPKP7O7B }}
-          aws-secret-access-key: ${{ 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 }}
+          aws-access-key-id: ${{ secrets.AKIAUZVMVGEIGPKP7O7B }}
+          aws-secret-access-key: ${{ secrets.JQ5Rz+i6fMoGdSvJG/XJSp7Gh9H3xBh8sJmCRD6m }}
           aws-region: ap-south-1
 
       - name: Create EC2 Instance
