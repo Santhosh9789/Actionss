@@ -1,0 +1,29 @@
+name: Create EC2 Instance
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  create-ec2-instance:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up AWS CLI
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ AKIAUZVMVGEIGPKP7O7B }}
+          aws-secret-access-key: ${{ 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 }}
+          aws-region: ap-south-1
+
+      - name: Create EC2 Instance
+        run: |
+          # Use AWS CLI to create an EC2 instance
+          aws ec2 run-instances \
+            --image-id ami-03f4878755434977f \
+            --instance-type t2.micro \
+            --key-name sam \
+            --security-group-ids sg-0715a3d13912db5c1 \
+            --subnet-id subnet-050149def2bd759d5
